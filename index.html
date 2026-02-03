@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy FNB - Solusi Terintegrasi Proses Utama Usaha FNB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            height: 300px;
+            max-height: 400px;
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at top right, #ecfdf5 0%, #ffffff 50%);
+        }
+
+        .tab-active {
+            background-color: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            color: #059669;
+        }
+
+        .feature-tab-active {
+            border-bottom: 3px solid #10b981;
+            color: #10b981;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up { animation: slideUp 0.6s ease-out forwards; }
+
+        .problem-grid-item {
+            transition: all 0.3s ease;
+        }
+        .problem-grid-item:hover {
+            background-color: #fff1f2;
+            border-color: #fda4af;
+        }
+
+        .detail-table-row:nth-child(even) { background-color: #f9fafb; }
+        
+        .price-strike {
+            text-decoration: line-through;
+            color: #94a3b8;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-slate-900 antialiased">
+
+    <!-- Navigasi -->
+    <nav class="bg-white/80 backdrop-blur-md border-b border-stone-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center text-white font-bold">E</div>
+                    <span class="font-extrabold text-xl tracking-tight uppercase">Easy<span class="text-emerald-600">fnb</span></span>
+                </div>
+                <div class="hidden md:flex items-center space-x-6 text-sm font-bold text-slate-500">
+                    <a href="#masalah" class="hover:text-emerald-600 transition-colors">Masalah Utama</a>
+                    <a href="#solusi" class="hover:text-emerald-600 transition-colors">Solusi</a>
+                    <a href="#fitur-detail" class="hover:text-emerald-600 transition-colors">Detail Fitur</a>
+                    <a href="#komparasi" class="hover:text-emerald-600 transition-colors">Harga</a>
+                    <a href="#simulasi" class="bg-emerald-600 text-white px-5 py-2 rounded-full hover:bg-emerald-700 transition-all shadow-md">Simulasi Hemat</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-gradient pt-20 pb-24 border-b border-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold mb-6 animate-slide-up">
+                <span>✨</span> SOLUSI TERINTEGRASI PROSES UTAMA FNB
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6 animate-slide-up">
+                Kelola Bisnis FNB <br>
+                <span class="text-emerald-600">Lebih Ringan & Anti-Pusing!</span>
+            </h1>
+            <p class="text-xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed animate-slide-up" style="animation-delay: 0.1s">
+                Aplikasi yang memudahkan semua proses utama usaha FNB Anda. Integrasi pengiriman kurir internal, sistem member otomatis, dan manajemen operasional dalam satu harga yang adil.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 animate-slide-up" style="animation-delay: 0.2s">
+                <a href="#simulasi" class="px-8 py-4 bg-emerald-600 text-white rounded-xl font-bold text-lg hover:bg-emerald-700 transition-all shadow-xl shadow-emerald-200 w-full sm:w-auto text-center">
+                    Mulai Efisiensi Sekarang
+                </a>
+                
+                <div class="bg-white px-8 py-4 rounded-2xl border border-stone-200 shadow-sm flex items-center gap-4">
+                    <span class="price-strike">Rp 98.000</span>
+                    <span class="font-bold text-slate-800 text-xl whitespace-nowrap">Rp 59.000 <span class="text-xs text-slate-400 font-normal">/ Cabang</span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section 1: Business Pain Points -->
+    <section id="masalah" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-slate-900 uppercase tracking-tight">Silent Killer Bisnis FNB</h2>
+            <p class="text-slate-500 mt-4 max-w-2xl mx-auto italic">Masalah operasional yang menggerus margin keuntungan Anda secara perlahan.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="problem-grid-item p-8 bg-white border border-stone-200 rounded-3xl shadow-sm">
+                <div class="text-rose-500 font-bold mb-4 flex items-center gap-2">
+                    <span class="text-2xl">📈</span> KOMISI PLATFORM 30%
+                </div>
+                <p class="text-sm text-slate-600 leading-relaxed">Ketergantungan pada GoFood/ShopeeFood menggerus margin hingga 30% per transaksi. Tanpa delivery mandiri, profit Anda habis untuk membayar komisi.</p>
+            </div>
+
+            <div class="problem-grid-item p-8 bg-white border border-stone-200 rounded-3xl shadow-sm">
+                <div class="text-rose-500 font-bold mb-4 flex items-center gap-2">
+                    <span class="text-2xl">📋</span> AUDIT MANUAL 20 JAM
+                </div>
+                <p class="text-sm text-slate-600 leading-relaxed">Rekonsiliasi data dari POS, delivery, dan Excel memakan waktu 10-20 jam per cabang tiap bulan. Human error di Excel memicu risiko kecurangan.</p>
+            </div>
+
+            <div class="problem-grid-item p-8 bg-white border border-stone-200 rounded-3xl shadow-sm">
+                <div class="text-rose-500 font-bold mb-4 flex items-center gap-2">
+                    <span class="text-2xl">📦</span> WASTE BAHAN 15%
+                </div>
+                <p class="text-sm text-slate-600 leading-relaxed">Tracking stok manual menyebabkan bahan baku sering ghaib atau kedaluwarsa. Tanpa digitalisasi resep, waste makanan bisa mencapai 15%.</p>
+            </div>
+
+            <div class="problem-grid-item p-8 bg-white border border-stone-200 rounded-3xl shadow-sm">
+                <div class="text-rose-500 font-bold mb-4 flex items-center gap-2">
+                    <span class="text-2xl">🔗</span> SISTEM TIDAK SINKRON
+                </div>
+                <p class="text-sm text-slate-600 leading-relaxed">Tiap cabang punya POS mandiri dengan lisensi terpisah? Laporan pusat delay dan kontrol kualitas menu antar-cabang menjadi sangat sulit.</p>
+            </div>
+
+            <div class="problem-grid-item p-8 bg-white border border-stone-200 rounded-3xl shadow-sm">
+                <div class="text-rose-500 font-bold mb-4 flex items-center gap-2">
+                    <span class="text-2xl">👥</span> TURNOVER SDM TINGGI
+                </div>
+                <p class="text-sm text-slate-600 leading-relaxed">Karyawan pusing belajar banyak aplikasi terpisah. Biaya rekrutmen dan training membengkak hingga 30% dari total operasional F&B.</p>
+            </div>
+
+            <div class="problem-grid-item p-8 bg-white border border-stone-200 rounded-3xl shadow-sm">
+                <div class="text-rose-500 font-bold mb-4 flex items-center gap-2">
+                    <span class="text-2xl">⚖️</span> KURANG INTEGRASI
+                </div>
+                <p class="text-sm text-slate-600 leading-relaxed">Bingung memilih tools saat ekspansi ke 3+ cabang karena takut biaya awal tinggi dan ketidaksesuaian antar-sistem. Skalabilitas Anda jadi terhambat!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Solution Overview -->
+    <section id="solusi" class="py-24 bg-slate-900 text-white rounded-t-[3rem] md:rounded-t-[5rem]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Satu Ekosistem, Solusi Segala Masalah</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">Menghubungkan seluruh proses harian bisnis kuliner Anda dalam satu aliran data yang lancar.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <div class="p-6 bg-slate-800 rounded-3xl border border-slate-700">
+                    <div class="text-4xl mb-4">💻</div>
+                    <h3 class="font-bold text-lg mb-2 text-emerald-400">Kasir Cerdas</h3>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-widest">PENYEDERHANAAN POS</p>
+                </div>
+                <div class="p-6 bg-slate-800 rounded-3xl border border-slate-700">
+                    <div class="text-4xl mb-4">🏪</div>
+                    <h3 class="font-bold text-lg mb-2 text-emerald-400">Web Profile</h3>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-widest">IDENTITY & ORDERING</p>
+                </div>
+                <div class="p-6 bg-slate-800 rounded-3xl border border-slate-700">
+                    <div class="text-4xl mb-4">🚲</div>
+                    <h3 class="font-bold text-lg mb-2 text-emerald-400">Delivery App</h3>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-widest">KURIR INTERNAL</p>
+                </div>
+                <div class="p-6 bg-slate-800 rounded-3xl border border-slate-700">
+                    <div class="text-4xl mb-4">💳</div>
+                    <h3 class="font-bold text-lg mb-2 text-emerald-400">Membership</h3>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-widest">RETENSI PELANGGAN</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Deep Feature Explorer -->
+    <section id="fitur-detail" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-slate-900">Bedah Tuntas Fitur Utama</h2>
+            <p class="text-slate-500 mt-4 italic leading-relaxed">
+                Fitur yang dirancang untuk mempercepat transaksi dan meningkatkan profitabilitas kafe Anda.
+            </p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-12 border-b border-stone-200">
+            <button onclick="showFeatureModule('web')" id="feat-btn-web" class="px-6 py-4 font-bold text-sm transition-all feature-tab-active">1. WEBSITE PROFILE</button>
+            <button onclick="showFeatureModule('pos')" id="feat-btn-pos" class="px-6 py-4 font-bold text-sm transition-all text-slate-400">2. POS SYSTEM</button>
+            <button onclick="showFeatureModule('mbr')" id="feat-btn-mbr" class="px-6 py-4 font-bold text-sm transition-all text-slate-400">3. MEMBERSHIP</button>
+            <button onclick="showFeatureModule('dlv')" id="feat-btn-dlv" class="px-6 py-4 font-bold text-sm transition-all text-slate-400">4. DELIVERY SYSTEM</button>
+        </div>
+
+        <div id="feature-content-area" class="bg-white rounded-3xl border border-stone-200 shadow-sm overflow-hidden animate-slide-up">
+            <!-- Content will be injected via JS -->
+        </div>
+    </section>
+
+    <!-- Section 4: Roadmap & Phases -->
+    <section id="roadmap" class="py-24 bg-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="max-w-xl text-left">
+                    <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Investasi Masa Depan</h2>
+                    <p class="text-slate-500 mt-4 leading-relaxed italic">Mulai dengan kebutuhan dasar hari ini, tumbuh dengan sistem enterprise besok.</p>
+                </div>
+                <div class="flex bg-white p-1.5 rounded-2xl border border-stone-200 shadow-sm">
+                    <button onclick="switchPhase('phase1')" id="tab-p1" class="px-8 py-3 rounded-xl text-sm font-bold tab-active transition-all">Phase 1 (Core)</button>
+                    <button onclick="switchPhase('phase2')" id="tab-p2" class="px-8 py-3 rounded-xl text-sm font-bold text-slate-500 transition-all">Phase 2 (Advanced)</button>
+                </div>
+            </div>
+
+            <div id="phase-content-1" class="grid grid-cols-1 md:grid-cols-3 gap-8 animate-slide-up">
+                <div class="p-8 bg-white rounded-3xl border border-stone-200 shadow-sm">
+                    <div class="text-2xl mb-4">🏪</div>
+                    <h4 class="font-bold text-emerald-600 mb-2">Digital Presence</h4>
+                    <p class="text-xs text-slate-500 italic">Bangun wajah digital brand Anda dalam hitungan menit.</p>
+                </div>
+                <div class="p-8 bg-white rounded-3xl border border-stone-200 shadow-sm">
+                    <div class="text-2xl mb-4">🛒</div>
+                    <h4 class="font-bold text-emerald-600 mb-2">Seamless POS</h4>
+                    <p class="text-xs text-slate-500 italic">Pencatatan transaksi harian yang stabil dan tanpa cela.</p>
+                </div>
+                <div class="p-8 bg-white rounded-3xl border border-stone-200 shadow-sm">
+                    <div class="text-2xl mb-4">🚚</div>
+                    <h4 class="font-bold text-emerald-600 mb-2">Smart Delivery</h4>
+                    <p class="text-xs text-slate-500 italic">Kelola kurir internal dan pantau status kiriman real-time.</p>
+                </div>
+            </div>
+
+            <div id="phase-content-2" class="hidden grid grid-cols-1 md:grid-cols-2 gap-8 animate-slide-up">
+                <div class="p-8 bg-emerald-50 rounded-3xl border border-emerald-100 shadow-sm">
+                    <div class="text-3xl mb-4">📦</div>
+                    <h4 class="font-bold text-emerald-900 mb-4">Gudang & Inventori Digital</h4>
+                    <p class="text-sm text-emerald-800/60 leading-relaxed">Resep digital (BOM) & mutasi bahan antar cabang otomatis yang menghentikan kebocoran stok bahan baku.</p>
+                </div>
+                <div class="p-8 bg-emerald-50 rounded-3xl border border-emerald-100 shadow-sm">
+                    <div class="text-3xl mb-4">📊</div>
+                    <h4 class="font-bold text-emerald-900 mb-4">Keuangan & Audit Otomatis</h4>
+                    <p class="text-sm text-emerald-800/60 leading-relaxed">Hentikan audit manual berjam-jam. Lihat P&L semua cabang secara real-time langsung dari smartphone Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Head-to-Head Comparison -->
+    <section id="komparasi" class="py-24 bg-white border-y border-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-6">
+                    <h2 class="text-3xl md:text-4xl font-bold leading-tight uppercase">Komparasi Harga <br><span class="text-emerald-600 italic">Keadilan Margin Anda.</span></h2>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="p-6 bg-emerald-50 rounded-2xl border-2 border-emerald-200">
+                            <div class="flex justify-between items-center mb-4">
+                                <div class="text-xs font-bold text-slate-500 uppercase">FEE ADMIN MEMBER</div>
+                                <div class="text-xs font-bold text-emerald-600 bg-emerald-100 px-2 py-0.5 rounded">EASY FNB</div>
+                            </div>
+                            <div class="flex items-baseline gap-4">
+                                <span class="text-4xl font-extrabold text-emerald-600">Rp 500</span>
+                                <span class="text-lg font-bold text-rose-400 line-through">Rp 2.500</span>
+                            </div>
+                            <p class="text-[11px] text-emerald-700 mt-4 leading-relaxed font-medium">
+                                *Biaya Rp 500 hanya untuk pembelian mandiri via <strong>Aplikasi Member</strong> (dari rumah atau di meja cafe). <br>
+                                <span class="text-slate-500 italic">Transaksi langsung via kasir dikenakan biaya sistem <strong>Rp 0 (GRATIS)</strong>.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white text-slate-900 rounded-[2.5rem] p-4 shadow-2xl border border-stone-100">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left min-w-[400px]">
+                            <thead>
+                                <tr class="bg-stone-50">
+                                    <th class="p-5 font-bold text-slate-500 uppercase text-[10px]">Fitur & Layanan</th>
+                                    <th class="p-5 font-bold text-slate-400 italic text-[10px]">Market Standard</th>
+                                    <th class="p-5 font-bold text-emerald-600 text-[10px]">Easy FNB</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-xs">
+                                <tr class="border-b border-stone-100">
+                                    <td class="p-5 font-semibold">Sewa Sistem / Bulan</td>
+                                    <td class="p-5 text-slate-400">Rp 299.000++</td>
+                                    <td class="p-5 font-bold text-emerald-600">Rp 59.000</td>
+                                </tr>
+                                <tr class="border-b border-stone-100 bg-emerald-50/50">
+                                    <td class="p-5 font-semibold italic">Fee Member (App Only)</td>
+                                    <td class="p-5 text-rose-400 italic">Rp 2.500</td>
+                                    <td class="p-5 font-bold text-emerald-600">Rp 500</td>
+                                </tr>
+                                <tr class="border-b border-stone-100">
+                                    <td class="p-5 font-semibold">App Kurir / Delivery</td>
+                                    <td class="p-5 text-slate-400">Biaya Tambahan</td>
+                                    <td class="p-5 font-bold text-emerald-600">GRATIS</td>
+                                </tr>
+                                <tr class="border-b border-stone-100">
+                                    <td class="p-5 font-semibold">Web Profile Brand</td>
+                                    <td class="p-5 text-slate-400">Bayar Jasa Developer</td>
+                                    <td class="p-5 font-bold text-emerald-600">SUDAH TERMASUK</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Savings Simulator -->
+    <section id="simulasi" class="py-24 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-16 items-center">
+                <div class="lg:col-span-2 space-y-8">
+                    <h2 class="text-3xl font-bold text-slate-900 leading-tight">Visualisasi <br>Penghematan Biaya</h2>
+                    <div class="bg-white p-8 rounded-[2rem] border border-stone-200 shadow-sm">
+                        <div class="flex justify-between items-end mb-6">
+                            <label class="font-bold text-sm text-slate-700">Jumlah Cabang</label>
+                            <span id="branchValue" class="text-4xl font-extrabold text-emerald-600">3</span>
+                        </div>
+                        <input type="range" id="branchSlider" min="1" max="25" value="3" class="w-full h-3 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-emerald-600">
+                    </div>
+                    <div class="space-y-4">
+                        <div class="p-5 bg-red-50 rounded-2xl flex justify-between items-center text-xs font-bold text-red-800">
+                            <span>Estimasi Kompetitor / Thn</span>
+                            <span id="compCost">Rp 10.764.000</span>
+                        </div>
+                        <div class="p-6 bg-emerald-600 rounded-2xl shadow-lg flex justify-between items-center text-white">
+                            <span class="text-xs font-bold uppercase">Profit Tambahan / Thn</span>
+                            <span id="savingCost" class="text-2xl font-extrabold">Rp 8.640.000</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-3">
+                    <div class="bg-white p-8 rounded-[3rem] border border-stone-200 shadow-2xl relative overflow-hidden">
+                        <h4 class="text-center font-bold text-slate-800 mb-8 uppercase tracking-widest text-xs">Biaya Operasional Tahunan (IDR)</h4>
+                        <div class="chart-container">
+                            <canvas id="savingsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-20 text-white rounded-t-[3rem] md:rounded-t-[5rem]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-10 uppercase tracking-widest">Partner Digitalisasi Bisnis Anda</h2>
+            
+            <div class="mb-12 space-y-4 border-t border-slate-800 pt-12">
+                <p class="text-slate-500 text-sm">Dibuat dengan ❤️ di Bandung, Indonesia — <a href="https://cecepazhar.com" target="_blank" class="text-emerald-400 hover:underline">Cecep Azhar</a> © 2026</p>
+                <div class="flex justify-center gap-6 text-xs font-bold text-slate-400 uppercase tracking-widest">
+                    <a href="https://cecepazhar.com" target="_blank" class="hover:text-emerald-400 transition-colors">Portofolio Kami</a>
+                    <span class="opacity-20">|</span>
+                    <a href="https://cecepazhar.com/support" target="_blank" class="hover:text-emerald-400 transition-colors">Pusat Bantuan</a>
+                    <span class="opacity-20">|</span>
+                    <a href="https://cecepazhar.com/support" target="_blank" class="hover:text-emerald-400 transition-colors flex items-center gap-2">Traktir kopi ☕</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const featuresData = {
+            web: {
+                title: "1. Website Landing Page",
+                desc: "Meningkatkan kehadiran digital untuk menarik 70% pencarian F&B via mobile.",
+                items: [
+                    ["Responsif Mobile-First", "Tampilan adaptif untuk smartphone dengan CTA mudah disentuh.", "Kurangi bounce rate 50%, optimalkan pesanan online."],
+                    ["Visual HD Appetizing", "Galeri foto makanan & video pendek berkualitas tinggi.", "Meningkatkan konversi hingga 30% via daya tarik visual."],
+                    ["Menu Navigasi Mudah", "Menu digital interaktif dengan filter (harga, kategori).", "Mudahkan pelanggan memilih, update real-time via POS."],
+                    ["Reservasi Online", "Form booking meja terintegrasi dengan kalender operasional.", "Kurangi no-show hingga 20% dengan sistem yang rapi."],
+                    ["SEO & Maps Lokal", "Google Maps interaktif & optimasi kata kunci 'Cafe terdekat'.", "Tingkatkan kunjungan fisik ke outlet Jakarta & sekitarnya."],
+                    ["Testimoni Brand", "Halaman about us dengan cerita unik & review asli.", "Bangun kepercayaan emosional dengan pelanggan setia."],
+                    ["Integrasi Pembayaran", "Keranjang belanja takeout & dukung OVO, GoPay, Dana.", "Kurangi ketergantungan pada platform marketplace luar."],
+                    ["Analytics Dasar", "Integrasi Google Analytics untuk tracking sumber traffic.", "Analisis data untuk strategi promosi yang lebih targeted."]
+                ]
+            },
+            pos: {
+                title: "2. POS (Point of Sale) Terpadu",
+                desc: "Menghilangkan entry manual Excel dan silos data antar cabang.",
+                items: [
+                    ["Antarmuka Intuitif", "Layar sentuh dengan shortcut order yang cepat.", "Kurangi waktu training karyawan baru hingga 50%."],
+                    ["Manajemen Meja", "Visual floor plan, split bill, & integrasi Kitchen Display.", "Optimasi seating di jam sibuk, layanan lebih cepat 20%."],
+                    ["Inventori Real-Time", "Tracking stok otomatis & alert bahan hampir habis.", "Kurangi waste bahan hingga 15%, hindari stockout."],
+                    ["Pembayaran Fleksibel", "Tunai, kartu, digital wallet, QRIS, & split payment.", "Tingkatkan kepuasan dengan kemudahan opsi bayar."],
+                    ["Laporan & Audit", "Dashboard sales real-time & performa karyawan harian.", "Bantu audit cepat, identifikasi menu profit tinggi."],
+                    ["Integrasi API", "Koneksi ke aplikasi delivery, loyalty, & akuntansi.", "Efisien untuk multi-cabang tanpa data duplikat."],
+                    ["Self-Service Kiosk", "Opsi pesan mandiri untuk pelanggan di outlet.", "Kurangi antrean & hemat biaya tenaga kerja 10-15%."],
+                    ["Security Compliance", "Enkripsi data & laporan pajak (PPN) otomatis.", "Lindungi data & patuhi regulasi pajak Indonesia."]
+                ]
+            },
+            mbr: {
+                title: "3. Membership / Loyalty Program",
+                desc: "Sistem cerdas untuk meningkatkan retensi pelanggan hingga 65%.",
+                items: [
+                    ["Sistem Poin Belanja", "Akumulasi poin per transaksi, redeem menu gratis.", "Dorong nilai transaksi belanja lebih tinggi hingga 20%."],
+                    ["Tiered Membership", "Level Silver/Gold dengan reward yang meningkat.", "Motivasi pelanggan untuk frekuensi kunjungan lebih tinggi."],
+                    ["Birthday Rewards", "Pesan personal & diskon khusus hari ulang tahun.", "Bangun loyalitas emosional, kurangi angka churn rate."],
+                    ["WhatsApp Integration", "Scan QR untuk redeem & push notif promo via WA.", "Akses mudah tanpa perlu download aplikasi tambahan."],
+                    ["Gamification", "Badge & challenge harian untuk kumpulkan poin.", "Tingkatkan engagement pelanggan hingga 47%."],
+                    ["Segmentasi Data", "Laporan partisipasi & pemetaan profil pelanggan.", "Optimasi promo berdasarkan perilaku belanja asli."],
+                    ["Seamless Experience", "Poin bertambah otomatis baik order via web/meja.", "Seamless tanpa perlu input manual oleh kasir."],
+                    ["Referral Program", "Reward bagi pelanggan yang ajak teman bergabung.", "Perluas basis pelanggan brand Anda secara organik."]
+                ]
+            },
+            dlv: {
+                title: "4. Delivery Management System",
+                desc: "Pangkas komisi platform luar 30% dengan manajemen kurir internal.",
+                items: [
+                    ["Live Tracking Driver", "Pelacakan GPS driver & estimasi waktu (ETA).", "Tingkatkan kepuasan, kurangi komplain delay 40%."],
+                    ["Optimasi Rute AI", "Rute tercepat mempertimbangkan lalu lintas Jakarta.", "Hemat waktu antar 30% & kurangi biaya operasional."],
+                    ["Dispatching Otomatis", "Penugasan order ke kurir terdekat secara otomatis.", "Minimalkan manual entry untuk multi-cabang yang sibuk."],
+                    ["Order Management", "Konsolidasi order website, app, & third-party.", "Hilangkan data ganda, stok update otomatis di POS."],
+                    ["Status Notifikasi", "Push/SMS untuk status order & fitur chat driver.", "Transparansi tinggi bagi pelanggan dan pemilik bisnis."],
+                    ["Fleet Management", "Kelola armada internal atau kurir lepasan (fleet).", "Kontrol penuh biaya pengiriman di tangan Anda."],
+                    ["Analytics Performa", "Laporan waktu antar & rating kepuasan driver.", "Optimasi SDM, identifikasi bottleneck rute pengiriman."],
+                    ["Proof of Delivery", "Foto konfirmasi barang sampai & integrasi COD.", "Kurangi dispute transaksi, laporan keuangan aman."]
+                ]
+            }
+        };
+
+        function showFeatureModule(moduleKey) {
+            const area = document.getElementById('feature-content-area');
+            const data = featuresData[moduleKey];
+            const btns = ['web', 'pos', 'mbr', 'dlv'];
+            btns.forEach(k => {
+                document.getElementById(`feat-btn-${k}`).classList.remove('feature-tab-active');
+                document.getElementById(`feat-btn-${k}`).classList.add('text-slate-400');
+            });
+            document.getElementById(`feat-btn-${moduleKey}`).classList.add('feature-tab-active');
+            document.getElementById(`feat-btn-${moduleKey}`).classList.remove('text-slate-400');
+
+            let rowsHtml = data.items.map(item => `
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 border-b border-stone-100 detail-table-row">
+                    <div class="font-bold text-sm text-slate-800">${item[0]}</div>
+                    <div class="text-xs text-slate-500">${item[1]}</div>
+                    <div class="text-xs font-semibold text-emerald-600 italic">${item[2]}</div>
+                </div>
+            `).join('');
+
+            area.innerHTML = `
+                <div class="p-8 bg-emerald-50/30 border-b border-stone-200">
+                    <h3 class="text-2xl font-bold text-slate-900">${data.title}</h3>
+                    <p class="text-sm text-slate-500 mt-2">${data.desc}</p>
+                </div>
+                <div class="hidden md:grid grid-cols-3 gap-4 p-4 bg-stone-100 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                    <div>Fitur Utama</div>
+                    <div>Deskripsi</div>
+                    <div>Manfaat Bisnis F&B</div>
+                </div>
+                <div class="divide-y divide-stone-100">${rowsHtml}</div>
+            `;
+        }
+
+        function switchPhase(phase) {
+            const p1 = document.getElementById('phase-content-1');
+            const p2 = document.getElementById('phase-content-2');
+            const tab1 = document.getElementById('tab-p1');
+            const tab2 = document.getElementById('tab-p2');
+            if(phase === 'phase1') {
+                p1.classList.remove('hidden'); p2.classList.add('hidden');
+                tab1.className = "px-8 py-3 rounded-xl text-sm font-bold tab-active transition-all";
+                tab2.className = "px-8 py-3 rounded-xl text-sm font-bold text-slate-500 transition-all";
+            } else {
+                p2.classList.remove('hidden'); p1.classList.add('hidden');
+                tab2.className = "px-8 py-3 rounded-xl text-sm font-bold tab-active transition-all";
+                tab1.className = "px-8 py-3 rounded-xl text-sm font-bold text-slate-500 transition-all";
+            }
+        }
+
+        const PRICE_EASY = 59000;
+        const PRICE_COMP = 299000;
+        let chart;
+
+        function initChart() {
+            const ctx = document.getElementById('savingsChart').getContext('2d');
+            chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Kompetitor (Manual/Terpisah)', 'Easy FNB (Solusi Terintegrasi)'],
+                    datasets: [{
+                        label: 'Total Biaya Sistem / Thn',
+                        data: [0, 0],
+                        backgroundColor: ['#fca5a5', '#10b981'],
+                        borderRadius: 16,
+                        barThickness: 60
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: true, ticks: { callback: v => (v / 1000000) + 'jt' } } }
+                }
+            });
+            updateCalculations(3);
+        }
+
+        function updateCalculations(branches) {
+            const totalEasy = branches * PRICE_EASY * 12;
+            const totalComp = branches * PRICE_COMP * 12;
+            const savings = totalComp - totalEasy;
+            document.getElementById('branchValue').innerText = branches;
+            document.getElementById('compCost').innerText = 'Rp ' + totalComp.toLocaleString('id-ID');
+            document.getElementById('savingCost').innerText = 'Rp ' + savings.toLocaleString('id-ID');
+            chart.data.datasets[0].data = [totalComp, totalEasy];
+            chart.update();
+        }
+
+        document.getElementById('branchSlider').addEventListener('input', e => updateCalculations(parseInt(e.target.value)));
+        
+        window.onload = () => {
+            showFeatureModule('web');
+            initChart();
+        };
+    </script>
+</body>
+</html>
